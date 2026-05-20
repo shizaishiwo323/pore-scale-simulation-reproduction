@@ -1,0 +1,10 @@
+.DS_Store
+**/.DS_Store
+.vscode/
+
+# Nested checkout metadata; pnextract is tracked as a submodule.
+pnextract/.git/
+
+# Local build and smoke-test outputs that can be regenerated.
+pnextract/build/
+pnextract/bin/pnextract
