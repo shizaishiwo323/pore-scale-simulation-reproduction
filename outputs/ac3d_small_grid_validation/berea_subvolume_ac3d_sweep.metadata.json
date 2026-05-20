@@ -1,0 +1,49 @@
+{
+  "raw": "/Users/wangbin/Documents/Codex/论文复现/论文数据/microCT_Berea.raw",
+  "shape": [
+    350,
+    350,
+    350
+  ],
+  "crop_start": [
+    224,
+    80,
+    288
+  ],
+  "crop_size": [
+    16,
+    16,
+    16
+  ],
+  "pore_label": 1,
+  "solid_label": 2,
+  "voxel_size_m": 2.8e-06,
+  "spectra": "/Users/wangbin/Documents/Codex/论文复现/outputs/polarization_spectra_from_pnextract.csv",
+  "frequencies_requested_hz": [
+    0.001,
+    1.0,
+    1000.0
+  ],
+  "directions": [
+    "x",
+    "y",
+    "z"
+  ],
+  "label_counts": {
+    "1": 946,
+    "2": 3150
+  },
+  "pore_fraction": 0.23095703125,
+  "water_sigma_source": "apparent_water_sigma_* columns from spectra",
+  "solid_sigma_formula": "1j * omega * epsilon_s",
+  "parameters": {
+    "surface_conductance_s": 1.3e-09,
+    "diffusion_coefficient_m2_s": 1.3e-09,
+    "dynamic_pore_size_m": 2.7e-06,
+    "membrane_polarizability": 0.01,
+    "water_conductivity_s_m": 0.043,
+    "epsilon_0_f_m": 8.85e-12,
+    "water_relative_permittivity": 80.0,
+    "solid_relative_permittivity": 7.0
+  }
+}

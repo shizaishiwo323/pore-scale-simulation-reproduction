@@ -1,0 +1,126 @@
+Pore Network Extraction: pnextract version 2026.05.20-local
+//-*-C++-*-input: Berea350_crop80_readcheck.mhd;   output prefix: Berea350_crop80_readcheck 
+InputData:  ObjectType:	Image;
+ NDims:	3;
+ ElementType:	MET_UCHAR;
+ ElementByteOrderMSB:	False;
+ DimSize:	350 350 350;
+ ElementSize:	2.8 2.8 2.8;
+ Offset:	0 0 0;
+ ElementDataFile:	Berea350_pore0_solid1.raw;
+ cropD:	135 135 135 215 215 215;
+ title:	Berea350_crop80_readcheck;
+ write_elements:	true;
+ end:	;
+DefaultImageFormat: .raw.gz
+ voxel indices:
+  0: void voxels 
+  void voxel values: [0 0]
+  Voxel value indices: 0 1 1 1 1 1 1 1 1 1 1 1 1 ... 
+ Image file: Berea350_crop80_readcheck.mhd
+voxelImage "Berea350_crop80_readcheck.mhd":   Openning header: Berea350_crop80_readcheck.mhd
+ mhd:Berea350_crop80_readcheck.mhd: 
+  Nxyz: 350 350 350,    dX: 2.8 2.8 2.8,    X0: 0 0 0,    Img: Berea350_pore0_solid1.raw,	; 
+  Reading Berea350_pore0_solid1.raw , size:350*350*350*1, reading raw data.    dx=2.8(>0.02 -> assuming unit is um),   unit= 1e-06 => dx= 2.8e-06 2.8e-06 2.8e-06, X0= 0 0 0
+
+ cropD:  135 135 135 -- 215 215 215   cropping from  [135 135 135 to 215 215 215)  
+  stopped executing Berea350_crop80_readcheck.mhd before "title"  :/ 
+  Calculating image porosity, (void==0, valid!=255):
+   totalPorosity: 0.119631  = 61251/ (80*80*80)
+   validPorosity: 0.119631  = 61251/512000
+   dx: 2.8e-06 2.8e-06 2.8e-06,  X0: 0.000378 0.000378 0.000378
+   min: 0 max: 1 avg: 0.880369
+ siz:80 80 80 vxlSize:2.8e-06 X0:0.000378 0.000378 0.000378
+
+ 0. void: 61251 voxels, 11.9631%
+
+ keyword "minRPore" not found, default value (0.75) will be used
+ Default setting, will be updated after distance map computation:
+  minRPore     : 0.75;
+  medialSurfaceSettings: 0.05  0.98  0.7  1.75  0.6  1.1  3  0.15  0.75
+  medialSurfaceSettings:
+   clipROutx     : 0.05
+   clipROutyz    : 0.98
+   midRFrac      : 0.7
+   RMedSurfNoise : 1.75
+   lenNf         : 0.6
+   vmvRadRelNf   : 1.1
+   nRSmoothing   : 3
+   RCorsf  : 0.15
+   RCors   : 0.75
+
+
+Processing void voxels:
+ Creating 61251 voxels with index: 0
+ computing distance map for index 0  distance map / sphere radius = 2.01325  distance map / sphere radius = 1.5  distance map / sphere radius = 2.01325  distance map / sphere radius = 0.914214  distance map / sphere radius = 1.94949  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.914214  distance map / sphere radius = 1.73607  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.5  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.73607  distance map / sphere radius = 0.5  distance map / sphere radius = 2.05  distance map / sphere radius = 0.5  distance map / sphere radius = 1.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.914214  distance map / sphere radius = 1.73607  distance map / sphere radius = 0.5  distance map / sphere radius = 2.32843  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 4.91107  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.5  distance map / sphere radius = 4.08258  distance map / sphere radius = 2.81662  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.5  distance map / sphere radius = 1.94949  distance map / sphere radius = 1.73607  distance map / sphere radius = 2.32843  distance map / sphere radius = 2.32843  distance map / sphere radius = 5.01544  distance map / sphere radius = 3.24166  distance map / sphere radius = 4.39898  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.5  distance map / sphere radius = 1.94949  distance map / sphere radius = 5.90312  distance map / sphere radius = 2.01  distance map / sphere radius = 1.73607  distance map / sphere radius = 1.73607  distance map / sphere radius = 2.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.73607  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.914214  distance map / sphere radius = 2.32843  distance map / sphere radius = 1.5  distance map / sphere radius = 3.05027  distance map / sphere radius = 0.5  distance map / sphere radius = 4.08258  distance map / sphere radius = 1.5  distance map / sphere radius = 2.5  distance map / sphere radius = 2.03485  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.73607  distance map / sphere radius = 2.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 2.05  distance map / sphere radius = 4.19042  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 2.03246  distance map / sphere radius = 2.66228  distance map / sphere radius = 0.914214  distance map / sphere radius = 3.24166  distance map / sphere radius = 3.62311  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.5  distance map / sphere radius = 1.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.5  distance map / sphere radius = 1.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.5  distance map / sphere radius = 1.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.5  distance map / sphere radius = 1.73607  distance map / sphere radius = 1.5  distance map / sphere radius = 1.73607  distance map / sphere radius = 3.24166  distance map / sphere radius = 1.73607  distance map / sphere radius = 0.5  distance map / sphere radius = 3.62311  distance map / sphere radius = 1.73607  distance map / sphere radius = 1.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.914214  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 1.23205  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 4.59902  distance map / sphere radius = 1.73607  distance map / sphere radius = 2.77579  distance map / sphere radius = 0.914214  distance map / sphere radius = 3.74264  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.5  distance map / sphere radius = 4.19042  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.94949  distance map / sphere radius = 1.23205  distance map / sphere radius = 0.5  distance map / sphere radius = 1.5  distance map / sphere radius = 2.31201  distance map / sphere radius = 4.88516  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 1.73607  distance map / sphere radius = 3.10555  distance map / sphere radius = 5.90312  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 3.10555  distance map / sphere radius = 3.24166  distance map / sphere radius = 1.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.5  distance map / sphere radius = 3.8589  distance map / sphere radius = 0.5  distance map / sphere radius = 2.32843  distance map / sphere radius = 1.73607  distance map / sphere radius = 0.914214  distance map / sphere radius = 4.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 4.07845  distance map / sphere radius = 4.5  distance map / sphere radius = 2.32843  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.73607  distance map / sphere radius = 4.74091  distance map / sphere radius = 0.5  distance map / sphere radius = 1.94949  distance map / sphere radius = 1.73607  distance map / sphere radius = 1.73607  distance map / sphere radius = 4.97723  distance map / sphere radius = 1.94949  distance map / sphere radius = 1.73607  distance map / sphere radius = 1.5  distance map / sphere radius = 0.5  distance map / sphere radius = 2.81662  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.73607  distance map / sphere radius = 7.31025  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 5.99779  distance map / sphere radius = 1.73607  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 3.62311  distance map / sphere radius = 6.04205  distance map / sphere radius = 1.5  distance map / sphere radius = 1.5  distance map / sphere radius = 0.5  distance map / sphere radius = 5.08079  distance map / sphere radius = 1.73607  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.5  distance map / sphere radius = 1.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.73607  distance map / sphere radius = 1.73607  distance map / sphere radius = 2.5  distance map / sphere radius = 3.00483  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 1.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 2.01
+  average distance map = 1.60191
+ keyword "minRPore" not found, default value (0.900478) will be used
+  minRPore     : 0.900478;
+  medialSurfaceSettings: 0.05  0.98  0.7  1.90048  0.6  1.1  3  0.15  0.900478
+  medialSurfaceSettings:
+   clipROutx     : 0.05
+   clipROutyz    : 0.98
+   midRFrac      : 0.7
+   RMedSurfNoise : 1.90048
+   lenNf         : 0.6
+   vmvRadRelNf   : 1.1
+   nRSmoothing   : 3
+   RCorsf  : 0.15
+   RCors   : 0.900478
+
+ smoothing R  *** maxrrr 8.79575
+ smoothing R  *** maxrrr 8.79075
+ smoothing R  *** maxrrr 8.78575
+
+  number of potential maximal spheres: 38496,  average radius = 2.24512
+ pre-remove included balls: out of 61251,   removed = 31766 remained = 6730
+ sorting... 6730 balls
+ remove included balls:  removed = 5923 remained = 807 balls
+ collecting maximal balls out of 807
+ sorting 807 maximal balls
+ creating ball hierarchy:   ball: 0   ball: 807
+
+
+Creating pore elements:
+
+ created 49 pores (+boundaries)  for up to index 0
+ mapping pores indices to image, for index 0:  2 to 48,  unasigned:-1
+  ngMedStrict:162   ngMedStrict:5   ngMedStrict:1   ngMedian:3844   ngMedStrict:917   ngMedian:1406   ngMedStrict:155   ngMedian:806   ngMedStrict:88 
+  ngMedian:555   ngMedStrict:77   ngMedian:354   ngMedStrict:37   ngMedian:221   ngMedStrict:32 
+  ngMedEqs:454    ngMedian:306   ngMedStrict:61   ngMedian:223   ngMedian:160   ngMedStrict:30   ngMedEqs:149    ngMedian:102   ngMedian:69   ngMedStrict:12 
+  ngMedEqs:74    ngMedEqs:74    ngMedEqs:46    ngMedEqs:32    ngMedEqs:28    ngMedLoose:4884    ngMedEqs:1989  
+  ngMedEqs:1554    ngMedLoose:4050    ngMedEqs:2455    ngMedLoose:3690    ngMedEqs:2367    ngMedLoose:3195    ngMedEqs:2006    ngMedLoose:2637    ngMedEqs:1674    ngMedLoose:1967    ngMedEqs:1179    ngMedLoose:1283  
+  ngrowPors:5405    ngMedian:525   ngMedEqs:204    ngrowPors:2118    ngMedian:81   ngrowPors:831    ngrowPors:444    ngrowPors:252  
+  ngrowPors:159    ngrowPors:109    ngrowPors:85    ngMedian:14   ngrowPors:60    ngrowPors:29    ngrowPors:16  
+  ngrowPors:14    ngrowPors:10    ngrowPors:11    ngrowPors:10    ngrowPors:9    ngrowPors:8  
+  ngrowPors:5    ngrowX3:5,5,  ngrowX2:2    ngrowX3:0,0,  ngrowX2:0    ngrowX3:0,0,  ngrowX2:0    ngrowX3:0,0,  ngrowX2:0  
+  nMedian:72   nMedian:20   nMedian:9   nMedian:8   nMedian:8 
+  ngrowPors:0    ngrowX3:0,0,  ngrowX2:0    ngrowPors:0  
+  nRetreat:2072  ngMedian:198   ngMedEqs:146    ngMedEqs:91    ngMedEqs:58    ngMedian:33   ngMedEqs:22    ngMedEqs:12    ngMedLoose:620    ngMedEqs:115    ngMedLoose:322    ngMedEqs:75    ngMedLoose:115    ngMedEqs:27    ngrowPors:228    ngrowX3:4,0,  ngrowX2:0    ngMedEqs:0    ngrowPors:0    ngrowX3:0,0,  ngrowX2:0  
+  nMedian:31   ngMedLoose:0  
+
+
+  writing binary file Berea350_crop80_readcheck_VElems.raw;  size: 82 82 82  
+looking for connections, iFirst = 0 ..  51 .. 60 .. 63,  nThroats: 63
+nElems:  112 = 49 + 63
+
+calc throat properties:  collecting face voxels,  
+   Warning: 38 voxels being in touch to more than two pores
+ calculating throat radii.
+
+calcThroats:
+ P1-to-P2 length < 3    for 8 throats
+ shapefactor: belowAllowedG 2.70274%   aboveAllowedG 1.00798%
+ checkSumAt: 1147 -3 -182
+calc Pores
+Writing throats.
+Writing pores.
+
+Berea350_crop80_readcheck
+***  49-2 pores, 63 throats,   ratio: 1.46512  ***
+end
+cpu times:
+  write: 0.006448
+  createMedialSurface: 0.05929
+  CreateVElem: 0.083361
+  Init: 0.031469

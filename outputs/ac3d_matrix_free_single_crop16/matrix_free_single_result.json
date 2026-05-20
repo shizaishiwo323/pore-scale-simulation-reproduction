@@ -1,0 +1,40 @@
+{
+  "shape": [
+    350,
+    350,
+    350
+  ],
+  "crop_start": [
+    224,
+    80,
+    288
+  ],
+  "solve_shape": [
+    16,
+    16,
+    16
+  ],
+  "n_cells": 4096,
+  "estimated_python_peak_bytes": 1318912,
+  "estimated_python_peak_gib": 0.00122833251953125,
+  "total_memory_bytes": 8589934592,
+  "total_memory_gib": 8.0,
+  "available_memory_bytes": null,
+  "available_memory_gib": null,
+  "memory_preflight_passed": true,
+  "solver": "matrix_free_bicgstab_jacobi_python_numpy",
+  "frequency_requested_hz": 1.0,
+  "direction": "y",
+  "frequency_hz": 1.0,
+  "water_sigma_real_s_m": 0.0589291897079846,
+  "water_sigma_imag_s_m": 0.0078475661423949,
+  "solid_sigma_real_s_m": 0.0,
+  "solid_sigma_imag_s_m": 3.892433297797754e-10,
+  "effective_sigma_real_s_m": 0.008948840312405408,
+  "effective_sigma_imag_s_m": 0.0011917123490839255,
+  "mean_current_real_a_m2": 0.008948840312405408,
+  "mean_current_imag_a_m2": 0.0011917123490839255,
+  "relative_residual_norm": 9.83802857894948e-09,
+  "iterations": 63,
+  "info": 0
+}

@@ -1,0 +1,14 @@
+ObjectType = Image
+NDims = 3
+ElementType = MET_UCHAR
+ElementByteOrderMSB = False
+DimSize = 350 350 350
+ElementSize = 2.8 2.8 2.8
+Offset = 0 0 0
+ElementDataFile = Berea350_pore0_solid1.raw
+
+// Central crop for read/mapping smoke test only.
+cropD 135 135 135 215 215 215
+
+title Berea350_crop80_readcheck
+write_elements true

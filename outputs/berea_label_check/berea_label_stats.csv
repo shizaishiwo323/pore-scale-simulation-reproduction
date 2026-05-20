@@ -1,0 +1,3 @@
+label,voxel_count,volume_fraction,component_count_6_connected,largest_component_voxels,largest_component_fraction_of_label,largest_component_touches_x0,largest_component_touches_x1,largest_component_touches_y0,largest_component_touches_y1,largest_component_touches_z0,largest_component_touches_z1
+1,9924264,0.23146971428571428,273,9915202,0.9990868844279032,1,1,1,1,1,1
+2,32950736,0.7685302857142857,432,32947978,0.9999162992899461,1,1,1,1,1,1

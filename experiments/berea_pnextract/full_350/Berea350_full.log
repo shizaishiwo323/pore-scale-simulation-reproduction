@@ -1,0 +1,124 @@
+Pore Network Extraction: pnextract version 2026.05.20-local
+//-*-C++-*-input: Berea350_full.mhd;   output prefix: Berea350_full 
+InputData:  ObjectType:	Image;
+ NDims:	3;
+ ElementType:	MET_UCHAR;
+ ElementByteOrderMSB:	False;
+ DimSize:	350 350 350;
+ ElementSize:	2.8 2.8 2.8;
+ Offset:	0 0 0;
+ ElementDataFile:	../Berea350_pore0_solid1.raw;
+ title:	Berea350_full;
+ write_elements:	false;
+ write_vtkNetwork:	false;
+ end:	;
+DefaultImageFormat: .raw.gz
+ voxel indices:
+  0: void voxels 
+  void voxel values: [0 0]
+  Voxel value indices: 0 1 1 1 1 1 1 1 1 1 1 1 1 ... 
+ Image file: Berea350_full.mhd
+voxelImage "Berea350_full.mhd":   Openning header: Berea350_full.mhd
+ mhd:Berea350_full.mhd: 
+  Nxyz: 350 350 350,    dX: 2.8 2.8 2.8,    X0: 0 0 0,    Img: ../Berea350_pore0_solid1.raw,	; 
+  Reading ../Berea350_pore0_solid1.raw , size:350*350*350*1, reading raw data.    dx=2.8(>0.02 -> assuming unit is um),   unit= 1e-06 => dx= 2.8e-06 2.8e-06 2.8e-06, X0= 0 0 0
+
+  stopped executing Berea350_full.mhd before "title"  :/ 
+  Calculating image porosity, (void==0, valid!=255):
+   totalPorosity: 0.23147  = 9924264/ (350*350*350)
+   validPorosity: 0.23147  = 9924264/42875000
+   dx: 2.8e-06 2.8e-06 2.8e-06,  X0: 0 0 0
+   min: 0 max: 1 avg: 0.76853
+ siz:350 350 350 vxlSize:2.8e-06 X0:0 0 0
+
+ 0. void: 9924264 voxels, 23.147%
+
+ keyword "minRPore" not found, default value (0.75) will be used
+ Default setting, will be updated after distance map computation:
+  minRPore     : 0.75;
+  medialSurfaceSettings: 0.05  0.98  0.7  1.75  0.6  1.1  3  0.15  0.75
+  medialSurfaceSettings:
+   clipROutx     : 0.05
+   clipROutyz    : 0.98
+   midRFrac      : 0.7
+   RMedSurfNoise : 1.75
+   lenNf         : 0.6
+   vmvRadRelNf   : 1.1
+   nRSmoothing   : 3
+   RCorsf  : 0.15
+   RCors   : 0.75
+
+
+Processing void voxels:
+ Creating 9924264 voxels with index: 0
+ computing distance map for index 0  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 4.08258  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 0.5  distance map / sphere radius = 8.55539  distance map / sphere radius = 4.97723  distance map / sphere radius = 9.34886  distance map / sphere radius = 0.5  distance map / sphere radius = 3.24166  distance map / sphere radius = 2.66228  distance map / sphere radius = 0.5  distance map / sphere radius = 3.24166  distance map / sphere radius = 1.73607  distance map / sphere radius = 0.5  distance map / sphere radius = 0.914214  distance map / sphere radius = 2.66228  distance map / sphere radius = 0.5  distance map / sphere radius = 2.5  distance map / sphere radius = 3.5  distance map / sphere radius = 1.73607  distance map / sphere radius = 0.5  distance map / sphere radius = 5.5  distance map / sphere radius = 1.94949  distance map / sphere radius = 3.62311  distance map / sphere radius = 0.5  distance map / sphere radius = 1.73607  distance map / sphere radius = 7.62404  distance map / sphere radius = 2.32843  distance map / sphere radius = 1.73607  distance map / sphere radius = 0.5  distance map / sphere radius = 5.82456  distance map / sphere radius = 1.23205  distance map / sphere radius = 2.5  distance map / sphere radius = 4.08258  distance map / sphere radius = 0.5  distance map / sphere radius = 0.5  distance map / sphere radius = 4.08258  distance map / sphere radius = 0.5
+  average distance map = 2.27672
+ keyword "minRPore" not found, default value (1.06918) will be used
+  minRPore     : 1.06918;
+  medialSurfaceSettings: 0.05  0.98  0.7  2.06918  0.6  1.1  3  0.15  1.06918
+  medialSurfaceSettings:
+   clipROutx     : 0.05
+   clipROutyz    : 0.98
+   midRFrac      : 0.7
+   RMedSurfNoise : 2.06918
+   lenNf         : 0.6
+   vmvRadRelNf   : 1.1
+   nRSmoothing   : 3
+   RCorsf  : 0.15
+   RCors   : 1.06918
+
+ smoothing R  *** maxrrr 15.7431
+ smoothing R  *** maxrrr 15.7381
+ smoothing R  *** maxrrr 15.7331
+
+  number of potential maximal spheres: 6249498,  average radius = 3.24511
+ pre-remove included balls: out of 9924264,   removed = 5228040 remained = 1021458
+ sorting... 1021458 balls
+ remove included balls:  remove = 115452  remove = 593485  remove = 732792  remove = 753329  remove = 935240  remove = 941627  remove = 942389  removed = 942956 remained = 78502 balls
+ collecting maximal balls out of 78502
+ sorting 78502 maximal balls
+ creating ball hierarchy:   ball: 0......................   ball: 78502
+
+
+Creating pore elements:
+
+ created 2126 pores (+boundaries)  for up to index 0
+ mapping pores indices to image, for index 0:  2 to 2125,  unasigned:-1
+  ngMedStrict:13575   ngMedStrict:793   ngMedStrict:332   ngMedian:432798   ngMedStrict:107949   ngMedian:145817   ngMedStrict:15224   ngMedian:85147   ngMedStrict:11758 
+  ngMedian:56330   ngMedStrict:7714   ngMedian:36127   ngMedStrict:4464   ngMedian:23425   ngMedStrict:2687 
+  ngMedEqs:40466    ngMedian:28327   ngMedStrict:4055   ngMedian:21416   ngMedian:16112   ngMedStrict:2629   ngMedEqs:14920    ngMedian:11490   ngMedian:9509   ngMedStrict:2057 
+  ngMedEqs:8264    ngMedEqs:6803    ngMedEqs:5519    ngMedEqs:4238    ngMedEqs:3035    ngMedLoose:610120    ngMedEqs:251982  
+  ngMedEqs:190975    ngMedLoose:545793    ngMedEqs:321086    ngMedLoose:544771    ngMedEqs:365644    ngMedLoose:554181    ngMedEqs:368439    ngMedLoose:518542    ngMedEqs:335812    ngMedLoose:453145    ngMedEqs:286319    ngMedLoose:376804  
+  ngrowPors:1177823    ngMedian:209482   ngMedEqs:132555    ngrowPors:541003    ngMedian:75613   ngrowPors:213893    ngrowPors:94265    ngrowPors:39732  
+  ngrowPors:17253    ngrowPors:8334    ngrowPors:4597    ngMedian:757   ngrowPors:2721    ngrowPors:1923    ngrowPors:1295  
+  ngrowPors:964    ngrowPors:679    ngrowPors:459    ngrowPors:304    ngrowPors:219    ngrowPors:134  
+  ngrowPors:89    ngrowX3:53,69,  ngrowX2:44    ngrowX3:2,0,  ngrowX2:0    ngrowX3:0,0,  ngrowX2:0    ngrowX3:0,0,  ngrowX2:0  
+  nMedian:14275   nMedian:5290   nMedian:2937   nMedian:2125   nMedian:1855 
+  ngrowPors:0    ngrowX3:0,0,  ngrowX2:0    ngrowPors:0  
+  nRetreat:472575  ngMedian:51116   ngMedEqs:36865    ngMedEqs:22449    ngMedEqs:12786    ngMedian:6820   ngMedEqs:3724    ngMedEqs:2037    ngMedLoose:165464    ngMedEqs:26205    ngMedLoose:81752    ngMedEqs:10408    ngMedLoose:22667    ngMedEqs:3451    ngrowPors:26162    ngrowX3:298,26,  ngrowX2:0    ngMedEqs:0    ngrowPors:0    ngrowX3:0,0,  ngrowX2:0  
+  nMedian:6264   ngMedLoose:0  
+
+
+looking for connections, iFirst = 0 ..  3167 .. 3640 .. 3849,  nThroats: 3849
+nElems:  5975 = 2126 + 3849
+
+calc throat properties:  collecting face voxels,  
+   Warning: 5340 voxels being in touch to more than two pores
+ calculating throat radii.
+
+calcThroats:
+ P1-to-P2 length < 3    for 83 throats
+ shapefactor: belowAllowedG 1.98137%   aboveAllowedG 0.915466%
+ checkSumAt: 17 805 3478
+calc Pores
+Writing throats.
+Writing pores.
+
+Berea350_full
+***  2126-2 pores, 3849 throats,   ratio: 1.81557  ***
+end
+cpu times:
+  write: 0.712956
+  createMedialSurface: 16.3091
+  CreateVElem: 13.5232
+  Init: 0.136032

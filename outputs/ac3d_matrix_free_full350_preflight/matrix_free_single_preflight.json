@@ -1,0 +1,24 @@
+{
+  "shape": [
+    350,
+    350,
+    350
+  ],
+  "crop_start": null,
+  "solve_shape": [
+    350,
+    350,
+    350
+  ],
+  "n_cells": 42875000,
+  "estimated_python_peak_bytes": 13805750000,
+  "estimated_python_peak_gib": 12.857606634497643,
+  "total_memory_bytes": 8589934592,
+  "total_memory_gib": 8.0,
+  "available_memory_bytes": null,
+  "available_memory_gib": null,
+  "memory_preflight_passed": false,
+  "solver": "matrix_free_bicgstab_jacobi_python_numpy",
+  "frequency_requested_hz": 1.0,
+  "direction": "x"
+}

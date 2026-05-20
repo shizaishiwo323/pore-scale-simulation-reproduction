@@ -1,0 +1,21 @@
+{
+  "pore_node_size": {
+    "l1_distance": 0.14945251058171463,
+    "weighted_mean_reference_m": 2.448580257562567e-05,
+    "weighted_mean_pnextract_m": 2.4857307668038645e-05,
+    "peak_reference_m": 3.3971999545352e-05,
+    "peak_pnextract_m": 3.3971999545352e-05
+  },
+  "pore_throat_length": {
+    "l1_distance": 0.6396062223240603,
+    "weighted_mean_reference_m": 2.68356459241562e-05,
+    "weighted_mean_pnextract_m": 3.885095679890946e-05,
+    "peak_reference_m": 3.52908019095626e-05,
+    "peak_pnextract_m": 4.31466595753034e-05
+  },
+  "notes": [
+    "pnextract pore node size is compared using node2 pore_radius_m weighted by pore_volume_m3.",
+    "pnextract pore throat length is compared using link2 throat_length_m weighted by throat_volume_m3.",
+    "Figure5 paper relative volumes were normalized to sum to one before comparison."
+  ]
+}

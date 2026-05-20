@@ -1,0 +1,15 @@
+ObjectType = Image
+NDims = 3
+ElementType = MET_UCHAR
+ElementByteOrderMSB = False
+DimSize = 350 350 350
+ElementSize = 2.8 2.8 2.8
+Offset = 0 0 0
+ElementDataFile = ../Berea350_pore0_solid1.raw
+
+// Full 350^3 Berea run for Figure 5 network-distribution comparison.
+// The derived raw uses pnextract convention: 0 = pore/water, 1 = solid.
+title Berea350_full
+write_elements false
+write_vtkNetwork false
+

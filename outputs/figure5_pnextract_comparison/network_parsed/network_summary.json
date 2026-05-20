@@ -1,0 +1,11 @@
+{
+  "prefix": "experiments/berea_pnextract/full_350/Berea350_full",
+  "n_pores": 2124,
+  "n_throats": 3849,
+  "pore_radius_volume_weighted_mean_m": 2.4849208099245557e-05,
+  "throat_length_volume_weighted_mean_m": 3.870017309758657e-05,
+  "pore_radius_min_m": 3.407829e-06,
+  "pore_radius_max_m": 4.525547e-05,
+  "throat_length_min_m": 9.24849e-07,
+  "throat_length_max_m": 0.0001027527
+}

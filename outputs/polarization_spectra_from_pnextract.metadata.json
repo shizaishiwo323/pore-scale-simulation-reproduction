@@ -1,0 +1,15 @@
+{
+  "n_pores_or_bins": 2124,
+  "n_throats_or_bins": 3849,
+  "membrane_mode": "geometry_zdc",
+  "parameters": {
+    "surface_conductance_s": 1.3e-09,
+    "diffusion_coefficient_m2_s": 1.3e-09,
+    "dynamic_pore_size_m": 2.7e-06,
+    "membrane_polarizability": 0.01,
+    "water_conductivity_s_m": 0.043,
+    "epsilon_0_f_m": 8.85e-12,
+    "water_relative_permittivity": 80.0,
+    "solid_relative_permittivity": 7.0
+  }
+}

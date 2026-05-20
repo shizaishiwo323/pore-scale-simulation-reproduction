@@ -79,6 +79,26 @@
 
 ## 阶段 2：准备 Berea 的 `.mhd` 输入并确认相标签
 
+状态：已完成，2026-05-20。
+
+完成记录：
+
+- 已完成原始 `microCT_Berea.raw` 标签审计，统计输出见 `outputs/berea_label_check/berea_label_stats.csv`。
+- 已生成中心切片核对图：`outputs/berea_label_check/berea_label_center_slices.png`。
+- 已确认后续采用 `label 1 = pore/water`、`label 2 = solid`。
+- 已新增标签审计脚本：`scripts/audit_berea_raw_labels.py`。
+- 已新增 pnextract 输入生成脚本：`scripts/prepare_berea_pnextract_input.py`。
+- 已生成派生 `uint8` 输入：`experiments/berea_pnextract/Berea350_pore0_solid1.raw`，映射为 `0 = pore/water`、`1 = solid`。
+- 已准备主输入头文件：`experiments/berea_pnextract/Berea350.mhd`。
+- 已用中心 `80^3` 裁剪体完成 pnextract 读取测试，测试输入为 `experiments/berea_pnextract/Berea350_crop80_readcheck.mhd`。
+- 读取测试成功输出 `Berea350_crop80_readcheck_link1.dat`、`link2.dat`、`node1.dat`、`node2.dat`。
+- 详细记录见：`notes/berea_raw_data_audit.md`。
+
+重要调整：
+
+- 直接用 `MET_USHORT` 头文件读取原始 raw 会在 `pnextract` 主流程的 `readConvertFromHeader` 转换处失败。
+- 因此阶段 2 采用可重复生成的 `uint8` 派生 raw；原始 `论文数据/microCT_Berea.raw` 保持只读不变。
+
 目的：让 `pnextract` 正确读取 Berea raw，并确认标签 `1` 是否为孔隙相。
 
 初步判断：
@@ -96,24 +116,24 @@
    - 若标签 `2` 是孔隙：反向映射，并记录证据。
 4. 输出若干中间切片或体素统计，用主论文 Figure 3 进行视觉核对。
 
-建议 `.mhd` 草案：
+实际 `.mhd`：
 
 ```text
 ObjectType = Image
 NDims = 3
-ElementType = MET_USHORT
+ElementType = MET_UCHAR
 ElementByteOrderMSB = False
 DimSize = 350 350 350
 ElementSize = 2.8 2.8 2.8
 Offset = 0 0 0
-ElementDataFile = ../../论文数据/microCT_Berea.raw
+ElementDataFile = Berea350_pore0_solid1.raw
 
-replaceRange 1 1 0
-replaceRange 2 2 1
 title Berea350
 write_elements true
 write_vtkNetwork true
 ```
+
+其中 `Berea350_pore0_solid1.raw` 由 `scripts/prepare_berea_pnextract_input.py` 从原始 `uint16` raw 生成，映射为 `0 = pore/water`、`1 = solid`。
 
 预期产物：
 
@@ -128,6 +148,28 @@ write_vtkNetwork true
 - 明确记录标签 `1/2` 的物理含义和不确定性。
 
 ## 阶段 3：提取孔网并对比 Figure 5
+
+状态：已完成，2026-05-20。
+
+完成记录：
+
+- 已对完整 `350^3` Berea 派生输入运行 `pnextract`。
+- 完整运行输入：`experiments/berea_pnextract/full_350/Berea350_full.mhd`。
+- 完整运行日志：`experiments/berea_pnextract/full_350/Berea350_full.log`。
+- 完整运行输出：`Berea350_full_node1.dat`、`node2.dat`、`link1.dat`、`link2.dat`。
+- 日志显示 `2126-2 pores, 3849 throats`；解析后内部 pores 为 `2124`，throats 为 `3849`。
+- 已新增解析脚本：`scripts/parse_pnextract_network.py`。
+- 已新增 Figure 5 对比脚本：`scripts/compare_figure5_network.py`。
+- 已生成解析结果：`outputs/figure5_pnextract_comparison/network_parsed/`。
+- 已生成对比图：`figures/figure5_pnextract_comparison.png`。
+- 已生成对比表和指标：`outputs/figure5_pnextract_comparison/figure5_pnextract_comparison.csv`、`figure5_pnextract_metrics.json`。
+- 详细记录见：`notes/figure5_pnextract_comparison.md`。
+
+对比结论：
+
+- 孔节点尺寸分布复现较好：体积加权均值 `2.4857e-05 m`，论文 Figure 5 为 `2.4486e-05 m`；主峰位置一致。
+- 孔喉长度分布主峰量级一致但偏长：体积加权均值 `3.8851e-05 m`，论文 Figure 5 为 `2.6836e-05 m`。
+- 后续严格复现极化模型时，优先使用 `Figure5.xlsx` 的分布；`pnextract` 输出作为 microCT 自动提取路线进行敏感性对比。
 
 目的：用 `pnextract` 从 Berea microCT 重新提取孔隙网络，并与论文提供的 Figure 5 数据对比。
 
@@ -163,6 +205,8 @@ write_vtkNetwork true
 - 每次运行有命令、输入文件、输出路径和参数记录。
 
 ## 阶段 4：实现孔极化和膜极化公式
+
+状态：已完成，2026-05-20。
 
 目的：实现论文 Equations 9-12、17-21，得到频率相关的水相附加复电导率 `Delta sigma*_w`。
 
@@ -201,7 +245,23 @@ write_vtkNetwork true
 - 关键参数全部可配置并有单位说明。
 - 输出可直接供 AC3D 求解器读取。
 
+完成记录：
+
+- 已实现公式模块 `src/pore_scale_electrical/polarization.py`，包括孔极化、膜极化、`Delta sigma*_w = 2 C* / Lambda` 上尺度、Equation 14 的表观水相复电导率转换，以及从 `pnextract` 孔喉几何量估算 `Z_dc` 的辅助函数。
+- 已加入单元测试 `tests/test_polarization.py`，覆盖孔极化低频/高频极限、膜极化低频/高频极限、Equation 12 上尺度和 `pnextract` shape factor 面积反演；在 `sip-simpeg` 环境中运行结果为 `4 passed`。
+- 已实现频率扫描脚本 `scripts/compute_polarization_spectra.py`，默认频率范围为 `1e-3` 到 `1e9` Hz，共 97 个对数采样点。
+- 已生成基于论文 Figure 5 分布的输出 `outputs/polarization_spectra_from_figure5.csv` 和元数据 `outputs/polarization_spectra_from_figure5.metadata.json`。由于 `Figure5.xlsx` 只包含孔径和孔喉长度分布，缺少每类孔喉对应的 `Z_dc` 或几何截面积/shape factor，所以该路线保守输出孔极化主项，膜极化列标记为缺失。
+- 已生成基于 `pnextract` 完整网络几何的输出 `outputs/polarization_spectra_from_pnextract.csv` 和元数据 `outputs/polarization_spectra_from_pnextract.metadata.json`。该路线使用孔喉半径、shape factor、长度和水相电导率估算 `Z_dc`，可得到孔极化加膜极化的完整频率相关估计。
+- 详细公式、参数、复数约定和当前限制已记录在 `notes/polarization_models.md`。
+
+当前约定与限制：
+
+- 代码内部和 CSV 输出采用 `sigma* = real + i imag` 的工程复数约定；若后续严格复现论文图中 `C* = C' - i C''` 的画法，需要在绘图或 AC3D 输入转换层统一变号。
+- Figure 5 严格复现路线仍缺作者原始网络中每条孔喉的 `Z_dc`，因此膜极化不能仅从 `Figure5.xlsx` 无歧义还原；`pnextract` 几何估算路线可继续用于阶段 5 的 AC3D 原型和灵敏度分析。
+
 ## 阶段 5：实现或改造 AC3D 复数有限差分求解器
+
+状态：已完成原型验证，2026-05-20。
 
 目的：解论文 Equation 15，并用 Equation 16 计算有效复电导率 `sigma*_eff`。
 
@@ -243,6 +303,22 @@ write_vtkNetwork true
 - 简单串联/并联结构结果与解析值一致。
 - 小体积 Berea 子样本能稳定收敛并输出复电导率。
 - 全尺寸运行前有资源估计和可恢复的运行日志。
+
+完成记录：
+
+- 已实现 `src/pore_scale_electrical/ac3d_solver.py`，求解周期边界条件下的复数有限体积/有限差分问题 `div(sigma* (E - grad(u))) = 0`。
+- 已实现半格串联调和平均 `sigma_face = 1 / (0.5 / sigma_i + 0.5 / sigma_j)`，并支持 `x/y/z` 三个外加电场方向分别计算 `sigma*_eff`。
+- 已实现 `tests/test_ac3d_solver.py`，覆盖均匀介质、串联层状介质、并联层状介质和相标签映射。联合阶段 4 测试运行结果为 `9 passed in 0.29s`。
+- 已实现 `scripts/run_ac3d_frequency_sweep.py`，可读取 Berea 原始体数据子体积、读取阶段 4 的水相复电导率频谱、映射固相/水相并输出频率扫描结果。
+- 已完成 Berea `16^3` 子体积验证，输出位于 `outputs/ac3d_small_grid_validation/berea_subvolume_ac3d_sweep.csv` 和 `outputs/ac3d_small_grid_validation/berea_subvolume_ac3d_sweep.metadata.json`。
+- 子体积设置为起点 `(224, 80, 288)`、大小 `16 x 16 x 16`，孔隙体素数 `946 / 4096`，孔隙度 `0.23095703125`；三个频率 `0.001, 1, 1000 Hz`、三个方向均收敛，相对残差约 `5e-15` 到 `1e-14`。
+- 详细验证记录和全尺寸资源估计见 `notes/ac3d_solver_validation.md`。
+
+当前限制：
+
+- 当前求解器使用显式稀疏矩阵和直接求解器，适合 `16^3` 到较小子体积的正确性验证；完整 `350^3` Berea 不应直接使用该直接求解路线。
+- `16^3` 验证子体积在 x 方向未形成有效水相导电通路，因此 x 方向实部接近零；这反映局部子体积连通性，不代表全尺寸样品的各向同性结果。
+- 全尺寸复现 Figure 6-8 前，需要把求解器升级为矩阵自由 Krylov 迭代和预条件版本，或复原 NISTIR 6269 中 AC3D 原始 Fortran 迭代实现。
 
 ## 阶段 6：频率扫描和 Figure 6-8 对比
 

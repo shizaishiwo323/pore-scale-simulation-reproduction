@@ -1,0 +1,14 @@
+ObjectType =  Image
+NDims =	   3
+ElementType = MET_INT
+ElementByteOrderMSB = False
+ElementNumberOfChannels = 1
+CompressedData = True
+
+DimSize =   82 82 82
+ElementSize =	2.8e-06 2.8e-06 2.8e-06
+Offset =      0.0003752 0.0003752 0.0003752
+ElementDataFile = Berea350_crop80_readcheck_VElems.raw.gz
+
+
+
