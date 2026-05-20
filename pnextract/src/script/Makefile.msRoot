@@ -1,0 +1,79 @@
+#!/bin/make 
+# Makefile for top ($msRoot) directory
+
+msRoot:=${CURDIR}
+msSrc := ${msRoot}/src
+ms3rd := ${msRoot}/thirdparty
+
+curMkfil:=$(lastword $(MAKEFILE_LIST))
+
+#nproc = $(shell $(( $nproc < 1 ? 4 : $nproc )))
+#nproc = $(shell $(( $nproc > 31 ? 31 : $nproc )))
+
+
+
+# Build for Linux
+all: checkRoot
+	mkdir -p lib
+	mkdir -p bin
+	mkdir -p include
+	(cd ${ms3rd} && $(MAKE) -f ${msSrc}/script/makefile.3rd  zlib)
+	(cd ${ms3rd} && $(MAKE) -f ${msSrc}/script/makefile.3rd )
+	(cd ${msSrc} && $(MAKE) -f ${msSrc}/script/Makefile.in recurseMake USE_msRecurse=1)
+	@echo done
+
+# Build for Windows
+mgw: checkRoot
+	mkdir -p lib
+	mkdir -p bin
+	mkdir -p include
+	(cd ${ms3rd} && $(MAKE) -f ${msSrc}/script/makefile.3rd  OPT=.exe)
+	(cd ${msSrc} && $(MAKE) -f ${msSrc}/script/Makefile.in recurseMake  OPT=.exe USE_msRecurse=1)
+	(cd bin && make -f ${msSrc}/script/Makefile.msRoot  checksum) || echo check checksum
+	@echo done
+
+
+clean: checkRoot
+	(cd ${ms3rd} && $(MAKE) -f ${msSrc}/script/makefile.3rd  clean)
+	(cd ${msSrc} && $(MAKE) -f ${msSrc}/script/Makefile.in recurseClean USE_msRecurse=1)
+	rm -rf  ${msRoot}/build ${msSrc}/*/__pycache__  log.make
+
+distclean: checkRoot clean
+	@echo "\n\nWarning:\n\n   deleting log.make, bin/, include/, lib/, share/ and test/, in 10s\n"
+	@bash -c 'read -t 10 -p "   press Entre to proceed,  Ctrl+c to stop? "' || echo deleting 
+	sleep 2
+	rm -rf   ${msRoot}/bin  ${msRoot}/include  ${msRoot}/lib  ${msRoot}/share ${msRoot}/test
+	(cd ${ms3rd} && $(MAKE) -f ${msSrc}/script/makefile.3rd  distclean)
+
+checkRoot:
+	@printf  "src/script/Makefile.msRoot == ${curMkfil}? "
+	@[ "src/script/Makefile.msRoot" =  "${curMkfil}" ] || (echo Error: ran make from wrong directory && false)
+	@echo  :/
+
+
+checksum: 
+	sha256sum *.exe > checksums_sha256.md
+	printf '\n\nTo validate above .exe files in Windows PowerShell, run:\n\n' >> checksums_sha256.md
+	printf '    certutil -hashfile   c:path/to/file.exe   SHA256\n\n'         >> checksums_sha256.md
+	printf 'and compare the output with the above SHA256 checksums.\n\n'      >> checksums_sha256.md
+	printf 'Or in Linux run from the bin/ directory:\n\n'                     >> checksums_sha256.md
+	printf '    sha256sum -c checksums_sha256.md\n\n'                         >> checksums_sha256.md
+
+
+
+
+#TODO ORGANISE tests (unify workflow)
+maketest= ( ! [ -d ${1} ] ) || (echo test ${1} && cd ${1} && make test)  ||  echo "Error failed in ${1} on make test"
+test: checkRoot
+	mkdir -p test
+	@$(call maketest,src/libvoxel)
+	@$(call maketest,src/pnm/pnextract)
+
+# not used yet
+installDir?=$(HOME)/.local/
+install:
+	mkdir -p $(installDir)bin/
+	cp -r bin  $(installDir)
+	cp -r lib  $(installDir)
+	cp src/bashrc  $(installDir)bin/
+	cp -r src/script $(installDir)bin/

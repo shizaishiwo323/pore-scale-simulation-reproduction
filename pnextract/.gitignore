@@ -1,0 +1,60 @@
+
+Make/*/
+bin/
+build/*
+include/
+lib/
+share/
+test/
+**/bu
+**/BU
+*.log
+log.*
+*-.cpp
+**/__pycache__
+*.pyc
+**/*.pyc
+*-
+**/lnInclude/
+**/Make/linux*/
+thirdparty/**/bin/
+
+
+# Latex
+*.aux
+*.toc
+
+
+# Prerequisites
+*.d
+*.dep
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
